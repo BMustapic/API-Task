@@ -1,0 +1,62 @@
+﻿@model APITask.Models.Beer
+
+@{
+    ViewData["Title"] = "Beers";
+}
+
+<h2>Beers</h2>
+
+<form method="get" asp-action="Index">
+    <label for="name">Beer name</label>
+    <input type="text" name="beer_name" />
+    <label for="date">Brewed before</label>
+    <input type="text" name="brewed_before" />
+    <input type="submit" value="Search" />
+</form>
+
+<form method="get" asp-action="Random">
+    <input type="submit" value="Random Beer" />
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.Image_url) *@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.First_brewed)*@
+                First brewed
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ABV)
+            </th>
+            <th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Name)
+            </td>
+            <td>
+                <img height="300" src="@Html.DisplayFor(modelItem => Model.Image_url)" alt="No picture available"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.First_brewed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ABV)
+            </td>
+        </tr>
+    </tbody>
+</table>
