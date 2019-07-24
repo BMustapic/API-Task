@@ -13,13 +13,6 @@ namespace APITask.Models
         public String Description { get; set; }
         public String First_brewed { get; set; }
         public String ABV { get; set; }
-        public List<String> FoodPairing { get; set; }
-        public Volume Volume { get; set; }
-    }
-
-    public class Volume
-    {
-        public Double Value { get; set; }
-        public String Unit { get; set; }
+        public List<String> Food_pairing { get; set; }
     }
 }

@@ -8,9 +8,9 @@
 
 <form method="get" asp-action="Index">
     <label for="name">Beer name</label>
-    <input type="text" name="beer_name" />
+    <input type="text" name="beer_name" placeholder="Beer name"/>
     <label for="date">Brewed before</label>
-    <input type="text" name="brewed_before" />
+    <input type="text" name="brewed_before" placeholder="MM/yyyy"/>
     <input type="submit" value="Search" />
 </form>
 
@@ -38,6 +38,9 @@
                 @Html.DisplayNameFor(model => model.ABV)
             </th>
             <th>
+                @*@Html.DisplayNameFor(model => model.Food_pairing)*@
+                Food pairings
+                </th>
         </tr>
     </thead>
     <tbody>
@@ -46,7 +49,7 @@
                 @Html.DisplayFor(modelItem => Model.Name)
             </td>
             <td>
-                <img height="300" src="@Html.DisplayFor(modelItem => Model.Image_url)" alt="No picture available"/>
+                <img height="300" src="@Html.DisplayFor(modelItem => Model.Image_url)" alt="No picture available" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => Model.Description)
@@ -56,6 +59,16 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => Model.ABV)
+            </td>
+            <td>
+                <table >
+                    @foreach (var i in Model.Food_pairing)
+                    {
+                        <tr style="border-bottom: 1px solid black;">
+                            <td> @i </td>
+                        </tr>
+                    }
+                </table>
             </td>
         </tr>
     </tbody>
